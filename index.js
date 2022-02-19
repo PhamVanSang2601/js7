@@ -4,3 +4,7 @@ const submitEl = document.getElementById("submit").onclick = function (){
     array.push(numberEl);
     console.log(array);
 }
+const submitEl2 = document.getElementById("submit2").onlcik = function(){
+    const chooseEl = +document.getElementById("choose").value ;
+    
+}
