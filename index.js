@@ -61,7 +61,11 @@ const submit2 = document.getElementById("submit2").onclick = function(){
     } else if (chooseEl === 6) {
         const addPositionEl = document.getElementById("addPosition");
         addPositionEl.style.display = "block";
-    }
+    } else if (chooseEl === 7) {
+        array.sort();
+        console.log(array);
+        resultEl.innerHTML += `<p>SẮP XẾP MẢNG THEO THỨ TỰ TĂNG DẦN: ${array}</p>`
+    } 
 
     resultEl.style.display = "block";
 }
