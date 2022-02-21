@@ -35,7 +35,16 @@ const submit2 = document.getElementById("submit2").onclick = function(){
         console.log(minInArray);
         resultEl.innerHTML +=`<p class="m-0">SỐ NHỎ NHẤT TRONG MẢNG LÀ: ${minInArray}</p>`
     } else if (chooseEl === 4){
-        
+        let numbarray = [];
+        for(let index = 0; index <= array.length; index++){
+            if(array[index] > 0){
+                numbarray.push(array[index]);
+            }
+        }
+        const minInArray = Math.min.apply(Math, numbarray);
+        console.log(numbarray)
+        console.log(minInArray)
+        resultEl.innerHTML +=`<p>SỐ DƯƠNG NHỎ NHẤT TRONG MẢNG LÀ: ${minInArray}</p>`
     }
 
     resultEl.style.display = "block";
