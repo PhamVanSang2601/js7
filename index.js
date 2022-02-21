@@ -1,3 +1,4 @@
+// tạo mảng
 let array = [];
 const resultEl = document.getElementById("result");
 const submitEl = document.getElementById("submit").onclick = function (){
@@ -9,8 +10,10 @@ const submitEl = document.getElementById("submit").onclick = function (){
     }
     console.log(array);
 }
+// chọn chức năng
 const submit2 = document.getElementById("submit2").onclick = function(){
     const chooseEl = +document.getElementById("choose").value;
+    // chức năng 1
     if(chooseEl === 1){
         let sum = 0;
         for(let index = 0; index <= array.length; index++){
@@ -20,7 +23,9 @@ const submit2 = document.getElementById("submit2").onclick = function(){
         }
         console.log(sum);
         resultEl.innerHTML +=`<p class="m-0">TỔNG SỐ DƯƠNG LÀ: ${sum}</p>`
-    } else if(chooseEl === 2){
+    }
+    // chức năng 2 
+    else if(chooseEl === 2){
         let sum = 0;
         for(let index = 0; index <= array.length; index++){
             if(array[index] > 0){
@@ -30,11 +35,15 @@ const submit2 = document.getElementById("submit2").onclick = function(){
         console.log(sum);
         resultEl.innerHTML +=`<p class="m-0">CÓ: ${sum} SỐ DƯƠNG TRONG MẢNG</p>`
         
-    } else if (chooseEl === 3) {
+    }
+    // chức năng 3
+    else if (chooseEl === 3) {
         const minInArray = Math.min.apply(Math, array);
         console.log(minInArray);
         resultEl.innerHTML +=`<p class="m-0">SỐ NHỎ NHẤT TRONG MẢNG LÀ: ${minInArray}</p>`
-    } else if (chooseEl === 4){
+    }
+    // chức năng 4
+    else if (chooseEl === 4){
         let numbarray = [];
         for(let index = 0; index <= array.length; index++){
             if(array[index] > 0){
@@ -45,7 +54,9 @@ const submit2 = document.getElementById("submit2").onclick = function(){
         console.log(numbarray)
         console.log(minInArray)
         resultEl.innerHTML +=`<p>SỐ DƯƠNG NHỎ NHẤT TRONG MẢNG LÀ: ${minInArray}</p>`
-    } else if (chooseEl === 5){
+    }
+    // chức năng 5
+    else if (chooseEl === 5){
         let numbarray = [];
         for(let index = 0; index <= array.length; index++){
             if(array[index] % 2 === 0){
@@ -58,17 +69,49 @@ const submit2 = document.getElementById("submit2").onclick = function(){
         } else {
             resultEl.innerHTML += `<p>SỐ CHẴN CUỐI CÙNG TRONG MẢNG LÀ: ${numbarray[numbarray.length-1]}</p>`
         }
-    } else if (chooseEl === 6) {
+    }
+    // chức năng 6
+    else if (chooseEl === 6) {
         const addPositionEl = document.getElementById("addPosition");
         addPositionEl.style.display = "block";
-    } else if (chooseEl === 7) {
+    }
+    // chức năng 7
+    else if (chooseEl === 7) {
         array.sort();
         console.log(array);
         resultEl.innerHTML += `<p>SẮP XẾP MẢNG THEO THỨ TỰ TĂNG DẦN: ${array}</p>`
-    } 
+    }
+    // chức năng 9
+    else if ( chooseEl === 9){
+        const addArrayEl = document.getElementById("addArray");
+        addArrayEl.style.display = "block";
+    }
+    // chức năng 10
+    else if (chooseEl === 10){
+        let poNumber = [];
+        let neNumber = [];
+        for(let index = 0; index < array.length; index++){
+            if(array[index] > 0){
+                poNumber.push(array[index]);
+            } else if(array[index] < 0){
+                neNumber.push(array[index]);
+            }
+        }
+        console.log("mảng số dương: ", poNumber, "mảng số âm: ", neNumber)
+        if(poNumber.length === neNumber.length){
+            resultEl.innerHTML += `<p>HAI MẢNG BẰNG NHAU</p>`
+        } else if(poNumber.length > neNumber.length){
+            let sub = poNumber.length - neNumber.length;
+            resultEl.innerHTML += `<p>MẢNG DƯƠNG NHIỀU HƠN ${sub} SỐ</p>`
+        } else if(poNumber.length < neNumber.length){
+            let sub = neNumber.length - poNumber.length;
+            resultEl.innerHTML += `<p>MẢNG ÂM NHIỀU HƠN ${sub} SỐ</p>`
+        }
+    }
 
     resultEl.style.display = "block";
 }
+// chức năng 6
 const submit3 = document.getElementById("submit3").onclick = function(){
     const position1El = +document.getElementById("position1").value;
     const position2El = +document.getElementById("position2").value;
@@ -79,4 +122,31 @@ const submit3 = document.getElementById("submit3").onclick = function(){
     console.log(array);
     resultEl.innerHTML += `<p>MÃNG SAU KHI ĐỔI VỊ TRÍ 2 PHẦN TỬ LÀ: ${array}</p>`
     resultEl.style.display = "block";
+}
+// chức năng 9
+let realnumberArray = [];
+const addRealnumber = document.getElementById("addRealnumber").onclick = function() {
+    const realnumberEl = +document.getElementById("realnumber").value ;
+    if(Math.pow(realnumberEl, 2) > 0){
+        realnumberArray.push(realnumberEl)
+    } else if (Math.pow(realnumberEl, 2) < 0) {
+        alert("nhập lại số thực");
+    }
+    console.log("mảng số thực mới:", realnumberArray);
+}
+const submit4 = document.getElementById("submit4").onclick = function (){
+    let sum = 0;
+    
+    for(let index = 0; index < realnumberArray.length; index++){
+        if(realnumberArray[index] % 1 === 0){
+            sum += 1;
+        } else if (realnumberArray.length = 0){
+            sum = 0;
+        }
+    }
+    if( sum > 0){
+        resultEl.innerHTML += `<p>TRONG MẢNG CÓ: ${sum} SỐ NGUYÊN</p>`
+    } else if (sum === 0){
+        resultEl.innerHTML += `<p>-1</p>`
+    }
 }
