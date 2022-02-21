@@ -58,7 +58,21 @@ const submit2 = document.getElementById("submit2").onclick = function(){
         } else {
             resultEl.innerHTML += `<p>SỐ CHẴN CUỐI CÙNG TRONG MẢNG LÀ: ${numbarray[numbarray.length-1]}</p>`
         }
+    } else if (chooseEl === 6) {
+        const addPositionEl = document.getElementById("addPosition");
+        addPositionEl.style.display = "block";
     }
 
+    resultEl.style.display = "block";
+}
+const submit3 = document.getElementById("submit3").onclick = function(){
+    const position1El = +document.getElementById("position1").value;
+    const position2El = +document.getElementById("position2").value;
+    console.log("vị trí 1:", position1El,"vị trí 2:", position2El);
+    const tmp = array[position1El - 1];
+    array[position1El - 1] = array[position2El - 1];
+    array[position2El - 1] = tmp;
+    console.log(array);
+    resultEl.innerHTML += `<p>MÃNG SAU KHI ĐỔI VỊ TRÍ 2 PHẦN TỬ LÀ: ${array}</p>`
     resultEl.style.display = "block";
 }
