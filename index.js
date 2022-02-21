@@ -45,6 +45,19 @@ const submit2 = document.getElementById("submit2").onclick = function(){
         console.log(numbarray)
         console.log(minInArray)
         resultEl.innerHTML +=`<p>SỐ DƯƠNG NHỎ NHẤT TRONG MẢNG LÀ: ${minInArray}</p>`
+    } else if (chooseEl === 5){
+        let numbarray = [];
+        for(let index = 0; index <= array.length; index++){
+            if(array[index] % 2 === 0){
+                numbarray.push(array[index]);
+            }
+        }
+        console.log( "Phần tử cuối cùng:  ", numbarray[numbarray.length-1] )
+        if(numbarray.length === 0){
+            resultEl.innerHTML += `<p>-1</p>`
+        } else {
+            resultEl.innerHTML += `<p>SỐ CHẴN CUỐI CÙNG TRONG MẢNG LÀ: ${numbarray[numbarray.length-1]}</p>`
+        }
     }
 
     resultEl.style.display = "block";
