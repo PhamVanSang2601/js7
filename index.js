@@ -81,6 +81,42 @@ const submit2 = document.getElementById("submit2").onclick = function(){
         console.log(array);
         resultEl.innerHTML += `<p>SẮP XẾP MẢNG THEO THỨ TỰ TĂNG DẦN: ${array}</p>`
     }
+    // chức năng 8
+    else if (chooseEl === 8){
+        let numbarray = [];
+        function isprime(n){
+            //flag = 0 => không phải số nguyên tố
+            //flag = 1 => số nguyên tố
+            
+            let flag = 1;
+        
+            if (n <2) return flag = 0; /*Số nhỏ hơn 2 không phải số nguyên tố => trả về 0*/
+            
+            /*Sử dụng vòng lặp while để kiểm tra có tồn tại ước số nào khác không*/
+            let i = 2;
+            while(i <n){
+                if( n%i==0 ) {
+                    flag = 0;
+                    break; /*Chỉ cần tìm thấy 1 ước số là đủ và thoát vòng lặp*/
+                }
+                i++;
+            }
+        
+            return flag;
+        }
+        /*Tìm và liệt kê các số nguyên tố trong mảng*/
+        for (let i = 0; i < array.length; i++){
+            if (isprime(array[i]) == 1) {
+                numbarray.push(array[i]);
+            }
+        }        
+        console.log(numbarray);
+        if(numbarray.length === 0){
+            resultEl.innerHTML += `<p>-1</p>`
+        } else{
+            resultEl.innerHTML += `<p>SỐ NGUYÊN ĐẦU TIÊN TRONG MẢNG LÀ: ${numbarray[0]}</p>`
+        }
+    }
     // chức năng 9
     else if ( chooseEl === 9){
         const addArrayEl = document.getElementById("addArray");
@@ -108,7 +144,6 @@ const submit2 = document.getElementById("submit2").onclick = function(){
             resultEl.innerHTML += `<p>MẢNG ÂM NHIỀU HƠN ${sub} SỐ</p>`
         }
     }
-
     resultEl.style.display = "block";
 }
 // chức năng 6
