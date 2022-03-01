@@ -159,23 +159,23 @@ const submit3 = document.getElementById("submit3").onclick = function(){
     resultEl.style.display = "block";
 }
 // chức năng 9
-let realnumberArray = [];
+
 const addRealnumber = document.getElementById("addRealnumber").onclick = function() {
     const realnumberEl = +document.getElementById("realnumber").value ;
     if(Math.pow(realnumberEl, 2) > 0){
-        realnumberArray.push(realnumberEl)
+        array.push(realnumberEl)
     } else if (Math.pow(realnumberEl, 2) < 0) {
         alert("nhập lại số thực");
     }
-    console.log("mảng số thực mới:", realnumberArray);
+    console.log("mảng số thực mới:", array);
 }
 const submit4 = document.getElementById("submit4").onclick = function (){
     let sum = 0;
     
-    for(let index = 0; index < realnumberArray.length; index++){
-        if(realnumberArray[index] % 1 === 0){
+    for(let index = 0; index < array.length; index++){
+        if(array[index] % 1 === 0){
             sum += 1;
-        } else if (realnumberArray.length = 0){
+        } else if (array.length = 0){
             sum = 0;
         }
     }
